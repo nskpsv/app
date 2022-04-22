@@ -1,0 +1,11 @@
+.back {
+    font-weight: bold;
+    font-size: 35px;
+    margin: 10px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+.contacts {
+    display: flex;
+    align-items:flex-start
+}
+
+.icon {
+    height: 30px;
+    margin-left: 10px;
+}
+
+.image {
+    height: 100%;
+}

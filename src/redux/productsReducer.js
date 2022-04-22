@@ -1,0 +1,425 @@
+import shoesMenSport1 from './../assets/productsPhoto/shoes/mensport1.jpg';
+import shoesMenSport2 from './../assets/productsPhoto/shoes/mensport2.png';
+import shoesMenSport3 from './../assets/productsPhoto/shoes/mensport3.png';
+import shoesMenCasual1 from './../assets/productsPhoto/shoes/mencasual1.png';
+import shoesMenCasual2 from './../assets/productsPhoto/shoes/mencasual2.png';
+import shoesWomenSport1 from './../assets/productsPhoto/shoes/womensport1.jpg';
+import shoesWomenSport2 from './../assets/productsPhoto/shoes/womensport2.jpg';
+import shoesWomenSport3 from './../assets/productsPhoto/shoes/womensport3.jpg';
+import shoesWomenCasual1 from './../assets/productsPhoto/shoes/womencasual1.jpg';
+import shoesWomenCasual2 from './../assets/productsPhoto/shoes/womencasual2.jpg';
+import shoesWomenCasual3 from './../assets/productsPhoto/shoes/womencasual3.jpg';
+import bagsMenSport1 from './../assets/productsPhoto/bags/mensport1.jpeg';
+import bagsMenSport2 from './../assets/productsPhoto/bags/mensport2.jpg';
+import bagsMenSport3 from './../assets/productsPhoto/bags/mensport3.jpg';
+import bagsMenCasual1 from './../assets/productsPhoto/bags/mencasual1.jpg';
+import bagsMenCasual2 from './../assets/productsPhoto/bags/mencasual2.jpg';
+import bagsMenCasual3 from './../assets/productsPhoto/bags/mencasual3.jpg';
+import bagsWomenSport1 from './../assets/productsPhoto/bags/womensport1.jpg';
+import bagsWomenSport2 from './../assets/productsPhoto/bags/womensport2.jpg';
+import bagsWomenSport3 from './../assets/productsPhoto/bags/womensport3.jpg';
+import bagsWomenCasual1 from './../assets/productsPhoto/bags/womencasual1.jpg';
+import bagsWomenCasual2 from './../assets/productsPhoto/bags/womencasual2.jpg';
+import bagsWomenCasual3 from './../assets/productsPhoto/bags/womencasual3.jpg';
+import watchesMenSport1 from './../assets/productsPhoto/watches/mensport1.jpg';
+import watchesMenSport2 from './../assets/productsPhoto/watches/mensport2.jpeg';
+import watchesMenSport3 from './../assets/productsPhoto/watches/mensport3.jpg';
+import watchesMenCasual2 from './../assets/productsPhoto/watches/mencasual2.png';
+import watchesMenCasual3 from './../assets/productsPhoto/watches/mencasual3.jpg';
+import watchesWomenSport1 from './../assets/productsPhoto/watches/womensport1.png';
+import watchesWomenSport2 from './../assets/productsPhoto/watches/womensport2.png';
+import watchesWomenSport3 from './../assets/productsPhoto/watches/womensport3.jpg';
+import watchesWomenCasual1 from './../assets/productsPhoto/watches/womencasual1.jpg';
+import watchesWomenCasual2 from './../assets/productsPhoto/watches/womencasual2.jpg';
+import watchesWomenCasual3 from './../assets/productsPhoto/watches/womencasual3.jpg';
+
+let initialState = {
+    list: [
+        {
+            id: 1,
+            category: 'bags',
+            gender: 'men',
+            style: 'casual',
+            photo: bagsMenCasual1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 2,
+            category: 'bags',
+            gender: 'men',
+            style: 'casual',
+            photo: bagsMenCasual2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 3,
+            category: 'bags',
+            gender: 'men',
+            style: 'casual',
+            photo: bagsMenCasual3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 4,
+            category: 'bags',
+            gender: 'men',
+            style: 'sport',
+            photo: bagsMenSport1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 5,
+            category: 'bags',
+            gender: 'men',
+            style: 'sport',
+            photo: bagsMenSport2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 6,
+            category: 'bags',
+            gender: 'men',
+            style: 'sport',
+            photo: bagsMenSport3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 7,
+            category: 'bags',
+            gender: 'women',
+            style: 'casual',
+            photo: bagsWomenCasual1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 8,
+            category: 'bags',
+            gender: 'women',
+            style: 'casual',
+            photo: bagsWomenCasual2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 9,
+            category: 'bags',
+            gender: 'women',
+            style: 'casual',
+            photo: bagsWomenCasual3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 10,
+            category: 'bags',
+            gender: 'women',
+            style: 'sport',
+            photo: bagsWomenSport1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 11,
+            category: 'bags',
+            gender: 'women',
+            style: 'sport',
+            photo: bagsWomenSport2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 12,
+            category: 'bags',
+            gender: 'women',
+            style: 'sport',
+            photo: bagsWomenSport3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Bag ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 13,
+            category: 'shoes',
+            gender: 'women',
+            style: 'sport',
+            photo: shoesWomenSport1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 14,
+            category: 'shoes',
+            gender: 'women',
+            style: 'sport',
+            photo: shoesWomenSport2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 15,
+            category: 'shoes',
+            gender: 'women',
+            style: 'sport',
+            photo: shoesWomenSport3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 16,
+            category: 'shoes',
+            gender: 'women',
+            style: 'casual',
+            photo: shoesWomenCasual1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 17,
+            category: 'shoes',
+            gender: 'women',
+            style: 'casual',
+            photo: shoesWomenCasual2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 18,
+            category: 'shoes',
+            gender: 'women',
+            style: 'casual',
+            photo: shoesWomenCasual3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 19,
+            category: 'shoes',
+            gender: 'men',
+            style: 'casual',
+            photo: shoesMenCasual1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 20,
+            category: 'shoes',
+            gender: 'men',
+            style: 'casual',
+            photo: shoesMenCasual2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 21,
+            category: 'shoes',
+            gender: 'men',
+            style: 'sport',
+            photo: shoesMenSport1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 22,
+            category: 'shoes',
+            gender: 'men',
+            style: 'sport',
+            photo: shoesMenSport2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 23,
+            category: 'shoes',
+            gender: 'men',
+            style: 'sport',
+            photo: shoesMenSport3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `Shoe ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here` },
+        },
+        {
+            id: 24,
+            category: 'watches',
+            gender: 'men',
+            style: 'sport',
+            photo: watchesMenSport1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 25,
+            category: 'watches',
+            gender: 'men',
+            style: 'sport',
+            photo: watchesMenSport2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 26,
+            category: 'watches',
+            gender: 'men',
+            style: 'sport',
+            photo: watchesMenSport3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 27,
+            category: 'watches',
+            gender: 'men',
+            style: 'casual',
+            photo: watchesMenCasual2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 28,
+            category: 'watches',
+            gender: 'men',
+            style: 'casual',
+            photo: watchesMenCasual3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 29,
+            category: 'watches',
+            gender: 'women',
+            style: 'casual',
+            photo: watchesWomenCasual1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 30,
+            category: 'watches',
+            gender: 'women',
+            style: 'casual',
+            photo: watchesWomenCasual2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 31,
+            category: 'watches',
+            gender: 'women',
+            style: 'casual',
+            photo: watchesWomenCasual3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 32,
+            category: 'watches',
+            gender: 'women',
+            style: 'sport',
+            photo: watchesWomenSport1,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 33,
+            category: 'watches',
+            gender: 'women',
+            style: 'sport',
+            photo: watchesWomenSport2,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+        {
+            id: 34,
+            category: 'watches',
+            gender: 'women',
+            style: 'sport',
+            photo: watchesWomenSport3,
+            price: Math.floor(Math.random() * 200),
+            raiting: Math.floor(Math.random() * 5),
+            title: function () { return `watch ${this.gender} ${this.style} ${this.id}` },
+            description: function () { return `Description and characteristics of the product "${this.title}" should be located here}located here` },
+        },
+    ],
+};
+
+initialState.entity = initialState.list.reduce((result, item) => {
+    result[item.id] = item;
+    return result;
+}, {});
+
+const productsReducer = (state = initialState, action) => {
+
+    return state;
+};
+
+export default productsReducer;
