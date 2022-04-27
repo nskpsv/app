@@ -1,33 +1,20 @@
 import UsersView from "./UsersView.jsx";
-import { setUsers, followUser, unFollowUser, toggleIsFetching, changePage } from './../../redux/usersReducer.js';
+import {follow, unfollow, changePage, getUsers } from './../../redux/usersReducer.js';
 import React from 'react';
-import * as axios from 'axios';
 import { connect } from 'react-redux';
 import Preloader from './../common/preloader/Preloader.jsx';
 
-class UsersAPI extends React.Component {
+
+class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users`, {params: {count: this.props.pageSize, page: this.props.currentPage}})
-            .then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.data)
-            })
+        this.props.getUsers(this.props.pageSize, this.props.currentPage);
 
     };
 
     onChangePage = (currentPage) => {;
-        this.props.toggleIsFetching(true);
         this.props.changePage(currentPage);
-
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${currentPage}`)
-            .then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.data)
-            });
+        this.props.getUsers(this.props.pageSize, currentPage);
     };
 
     render() {
@@ -38,9 +25,10 @@ class UsersAPI extends React.Component {
                 pageSize={this.props.pageSize}
                 users={this.props.users}
                 currentPage={this.props.currentPage}
-                follow={this.props.followUser}
-                unfollow={this.props.unfollowUser}
-                changePage={this.onChangePage} />
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+                changePage={this.onChangePage}
+                followingQueue={this.props.followingQueue} />
         </>
     };
 };
@@ -52,7 +40,9 @@ const mapStateToProps = (state) => {
         totalUsers: state.users.totalUsers,
         currentPage: state.users.currentPage,
         isFetching: state.users.isFetching,
+        followingQueue: state.users.followingQueue,
     };
 };
 
-export default connect(mapStateToProps, {setUsers, followUser, unFollowUser, toggleIsFetching, changePage})(UsersAPI);
+export default connect(mapStateToProps, 
+    {follow, unfollow, changePage, getUsers})(UsersContainer);

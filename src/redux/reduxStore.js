@@ -4,6 +4,7 @@ import homePageReducer from './homePageReducer.js';
 import productsReducer from './productsReducer.js';
 import usersReducer from './usersReducer.js';
 import profileReducer from './profileReducer.js';
+import thunk from 'redux-thunk';
 
 let reducers = combineReducers({
     cart: cartReducer,
@@ -19,7 +20,7 @@ if (typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION__) {
     // eslint-disable-next-line no-underscore-dangle
     enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
 };*/
-let store = createStore(reducers/*, undefined, applyMiddleware(...enhancers)*/);
+let store = createStore(reducers, applyMiddleware(thunk)/*, undefined, applyMiddleware(...enhancers)*/);
 window.state = store.getState();
 
 //console.log(store);

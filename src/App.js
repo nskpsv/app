@@ -5,6 +5,7 @@ import ProductCard from './elements/ProductCard/ProductCard.jsx';
 import CartContainer from './elements/Cart/CartContainer.js';
 import { Routes, Route } from 'react-router-dom';
 import Profile from './elements/profile/ProfileContainer.js';
+import Users from './elements/Users/UsersContainer.js';
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/product_card" element={<ProductCard />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/:categoryId" element={<HomePage />} />
+        <Route path="/users" element={<Users />} />
         <Route path="profile" element={<Profile />} >
           <Route path=":userId" element={<Profile />} />
           </Route>

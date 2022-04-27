@@ -47,10 +47,14 @@ const UsersView = (props) => {
                             </NavLink>
                             <div>
                                 {user.followed
-                                    ? <button onClick={() => props.unfollow(user.id)}>
+                                    ? <button
+                                        onClick={() => props.unfollow(user.id)}
+                                        disabled={props.followingQueue.some(id => id === user.id)}>
                                         Отписаться
                                     </button>
-                                    : <button onClick={() => props.follow(user.id)}>
+                                    : <button
+                                        onClick={() => props.follow(user.id)}
+                                        disabled={props.followingQueue.some(id => id === user.id)}>
                                         Подписаться
                                     </button>}
                             </div>

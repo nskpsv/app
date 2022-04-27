@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import { setProfile } from './../../redux/profileReducer.js';
 import React from "react";
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
 
