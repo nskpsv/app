@@ -1,6 +1,6 @@
 import React from "react";
 import style from './Cart.module.css';
-import { Raiting } from './../HomePage/Products/Products.jsx';
+import { Raiting } from '../Products/Products.jsx';
 import { NavLink } from "react-router-dom";
 
 const Cart = (props) => {

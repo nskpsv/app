@@ -14,3 +14,5 @@ import store from './redux/reduxStore.js';
     </BrowserRouter>,
     document.getElementById('root')
   );
+
+  window.store = store;

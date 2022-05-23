@@ -1,6 +1,7 @@
 import React from "react";
 import style from './users.module.css';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const UsersView = (props) => {
     const count = 10
@@ -8,8 +9,11 @@ const UsersView = (props) => {
     for (let i = 1; i <= count; i++) {
         pages.push(i);
     };
-
+    
     return <div className={style.container}>
+        <div className={style.back}>
+            <Link to="/">←</Link>
+        </div >
         <div className={style.pages}>
             {pages.map(number => {
                 return <span
@@ -27,7 +31,7 @@ const UsersView = (props) => {
                 props.users.map((user) => {
                     return (
                         <div key={user.id}>
-                            <NavLink to={'/profile/' + user.id}>
+                            <Link to={'/profile/' + user.id}>
                                 <div >
                                     <img className={style.photo} src={user.photos.small != null
                                         ? user.photos.small
@@ -44,7 +48,7 @@ const UsersView = (props) => {
                                         Статус {user.status}
                                     </div>
                                 </div>
-                            </NavLink>
+                            </Link>
                             <div>
                                 {user.followed
                                     ? <button

@@ -1,7 +1,7 @@
 import React from "react";
 import style from './Products.module.css';
-import starImg from './../../../common/star.png';
-import grayStarImg from './../../../common/gray_star.png';
+import starImg from './../../common/star.png';
+import grayStarImg from './../../common/gray_star.png';
 import { NavLink } from "react-router-dom";
 
 const Products = (props) => {

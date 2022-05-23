@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Filters from './Filters.jsx';
-import { setGenderFilterActionCreator } from '../../../redux/homePageReducer.js';
+import { setGenderFilterActionCreator } from '../../redux/homePageReducer.js';
 
     const mapStateToProps = (state) => {
         return {

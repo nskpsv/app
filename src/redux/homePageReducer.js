@@ -1,13 +1,5 @@
-import iconBags from './../assets/categoriesIcons/bags.png';
-import iconWatches from './../assets/categoriesIcons/watches.png';
-import iconShoes from './../assets/categoriesIcons/shoes.png';
-import iconGlasses from './../assets/categoriesIcons/glasses.png';
-import iconAudio from './../assets/categoriesIcons/audio.png';
-import iconEarrings from './../assets/categoriesIcons/earrings.png';
-import iconHats from './../assets/categoriesIcons/hats.png';
-
 let initialState = {
-    filters: {
+ /*   filters: {
         gender: 'all',
         category: '',
     },
@@ -47,7 +39,7 @@ let initialState = {
             title: 'hats',
             image: iconHats
         },
-    ],
+    ],*/
 };
 export const setCategoryFilterActionCreator = (filter) => {
     return {
@@ -62,10 +54,11 @@ export const setGenderFilterActionCreator = (filter) => {
     };
 };
 
+
 const homePageReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case 'SET_CATEGORY_FILTER':
+        case 'SET_CATEGORY_FILTER' :
             return {
                 ...state,
                 filters: {
@@ -73,8 +66,7 @@ const homePageReducer = (state = initialState, action) => {
                     category: action.filter
                 }
             };
-
-        case 'SET_GENDER_FILTER':
+        case 'SET_GENDER_FILTER' :
             return {
                 ...state,
                 filters: {

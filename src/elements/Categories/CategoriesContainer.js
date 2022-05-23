@@ -1,5 +1,5 @@
 import Categories from './Categories.jsx';
-import { setCategoryFilterActionCreator } from "../../../redux/store.js";
+import { setCategoryFilterActionCreator } from "../../redux/store.js";
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {

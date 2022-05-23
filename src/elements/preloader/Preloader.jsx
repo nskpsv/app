@@ -1,4 +1,4 @@
-import preloader from './../../../assets/spinner.svg';
+import preloader from './../../assets/spinner.svg';
 import style from './preloader.module.css';
 
 const Preloader = (props) => {

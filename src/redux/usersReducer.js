@@ -1,7 +1,8 @@
 import { usersApi } from "../api/api.js";
+import { setProfile } from "./profileReducer";
 
 const initialState = {
-    usersList: [],
+    users: [],
     followingQueue: [],
     pageSize: 20,
     totalUsers: 0,
@@ -33,8 +34,9 @@ export const getUsers = (pageSize, currentPage) => {
         dispatch(toggleIsFetching(true));
         usersApi.getUsers({ count: pageSize, page: currentPage })
             .then(res => {
-                dispatch(toggleIsFetching(false));
                 dispatch(setUsers(res));
+                dispatch(setProfile(res.items))
+                dispatch(toggleIsFetching(false));
             });
     };
 };
@@ -48,7 +50,7 @@ export const follow = (id) => {
                 dispatch(toggleFollowing(id, false));
                 dispatch(followSuccess(id))
             } else {
-                dispatch(unFollowSuccess(id));
+                dispatch(unfollowSuccess(id));
                 alert(`Произошла ошибка ${res.messages}`);
             }
         });
@@ -94,13 +96,13 @@ const usersReducer = (state = initialState, action) => {
         case 'SET_USERS':
             return {
                 ...state,
-                usersList: [...action.users.items],
+                users: action.users.items.map(usr => usr.id),  
                 totalUsers: action.users.totalCount,
             };
         case 'FOLLOW_USER_SUCCESS': 
             return {
                 ...state,
-                usersList: state.usersList.map(user =>
+                users: state.users.map(user =>
                     user.id === action.id
                         ? { ...user, followed: true }
                         : user)
@@ -108,7 +110,7 @@ const usersReducer = (state = initialState, action) => {
         case 'UNFOLLOW_USER_SUCCESS':
             return {
                 ...state,
-                usersList: state.usersList.map(user =>
+                users: state.users.map(user =>
                     user.id === action.id
                         ? { ...user, followed: false }
                         : user)
