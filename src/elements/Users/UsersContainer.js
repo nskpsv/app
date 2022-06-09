@@ -1,5 +1,6 @@
 import UsersView from "./UsersView.jsx";
-import { follow, unfollow, changePage, getUsers } from './../../redux/usersReducer.js';
+import { changePage, getUsers } from './../../redux/usersReducer.js';
+import { follow, unfollow, } from './../../redux/profileReducer.js';
 import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../preloader/Preloader.jsx';
@@ -18,7 +19,6 @@ class UsersContainer extends React.Component {
     };
 
     render() {
- 
         return <>
             {this.props.isFetching ? <Preloader /> 
             : <UsersView
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
         totalUsers: state.users.totalUsers,
         currentPage: state.users.currentPage,
         isFetching: state.users.isFetching,
-        followingQueue: state.users.followingQueue,
+        followingQueue: state.profile.followingQueue,
     };
 };
 

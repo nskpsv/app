@@ -1,0 +1,41 @@
+.field {
+    clear: both;
+    text-align: right;
+    line-height: 25px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    float: left;
+    margin-right: 10px;
+}
+
+form {
+    float: left;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.message {
+    position: absolute;
+    background: orangered;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    line-height: 15px;
+}
+
+.generalError {
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
+}

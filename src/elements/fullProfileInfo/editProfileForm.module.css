@@ -1,0 +1,28 @@
+textarea {
+    resize: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.field {
+    margin: 5px;
+}
+
+.contactsList {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.contacts {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}

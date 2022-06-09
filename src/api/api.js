@@ -8,16 +8,53 @@ const api = axios.create({
 
 export const usersApi = {
 
-    getFollowStatus: (id = null) => {
-        return api
-            .get(`follow/${id}`)
-            .then(res => { return res.data });
-    },
-
     getUsers: (params = { count: 20, page: 1 }) => {
         return api
             .get(`users/`, { params })
             .then(response => { return response.data });
+    },
+};
+
+export const authApi = {
+    checkAuth: () => {
+        return api
+            .get('auth/me')
+            .then(res => { return res.data })
+    },
+
+    login: (data) => {
+        return api
+        .post('auth/login', data)
+        .then(res => { return res.data })
+    },
+
+    logout: () => {
+        return api
+        .delete('auth/login')
+        .then(res => { return res.data })
+    },
+};
+
+export const profileApi = {
+    saveProfile: (values) => {
+        return api
+        .put('profile', values)
+        .then(res => { return res.data })
+    },
+
+    uploadAvatar: (file) => {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        return api
+        .put('profile/photo', formData, {headers: {'content-type': 'multipart/form-data'}})
+        .then(res => res.data)
+    },
+    
+    getFollowStatus: (id = null) => {
+        return api
+            .get(`follow/${id}`)
+            .then(res => { return res.data });
     },
 
     follow: (id) => {
@@ -31,26 +68,22 @@ export const usersApi = {
             .delete(`follow/${id}`)
             .then(res => { return res.data });
     },
-};
 
-export const authApi = {
-    checkAuth: () => {
-        return api
-            .get('auth/me')
-            .then(res => { return res.data })
-    }
-};
-
-export const profileApi = {
     getProfileData: (id) => {
         return api
-            .get('/profile/' + id)
+            .get('profile/' + id)
             .then(res => { return res.data })
+    },
+
+    setStatus: (status) => {
+        return api
+        .put('profile/status/', {status})
+        .then(res => { return res.data })
     },
 
     getStatus: (id) => {
         return api
-            .get('/profile/status/' + id)
+            .get('profile/status/' + id)
             .then(res => { return res.data })
     }
 };

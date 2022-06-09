@@ -1,34 +1,25 @@
 import React from "react";
 import style from './users.module.css';
 import { Link } from "react-router-dom";
+import Paginatior from "./Ppaginator";
 
 
 const UsersView = (props) => {
-    const count = 10
-    const pages = [];
-    for (let i = 1; i <= count; i++) {
-        pages.push(i);
-    };
+    const {totalUsers, pageSize, users, currentPage, follow, unfollow, changePage, followingQueue} = props;
     
     return <div className={style.container}>
         <div className={style.back}>
             <Link to="/">←</Link>
         </div >
-        <div className={style.pages}>
-            {pages.map(number => {
-                return <span
-                    key={number}
-                    onClick={() => props.changePage(number)}
-                    className={props.currentPage === number
-                        ? style.currentPage
-                        : undefined}>
-                    {`[ ${number} ]`}
-                </span>
-            })}
-        </div >
+        <Paginatior 
+        pageSize={pageSize}
+        currentPage={currentPage}
+        changePage={changePage}
+        totalItems={totalUsers}
+        visiblePages={10} />
         <div className={style.usersList}>
             {
-                props.users.map((user) => {
+                users.map((user) => {
                     return (
                         <div key={user.id}>
                             <Link to={'/profile/' + user.id}>
@@ -52,19 +43,19 @@ const UsersView = (props) => {
                             <div>
                                 {user.followed
                                     ? <button
-                                        onClick={() => props.unfollow(user.id)}
-                                        disabled={props.followingQueue.some(id => id === user.id)}>
+                                        onClick={() => unfollow(user.id)}
+                                        disabled={followingQueue.some(id => id === user.id)}>
                                         Отписаться
                                     </button>
                                     : <button
-                                        onClick={() => props.follow(user.id)}
-                                        disabled={props.followingQueue.some(id => id === user.id)}>
+                                        onClick={() => follow(user.id)}
+                                        disabled={followingQueue.some(id => id === user.id)}>
                                         Подписаться
                                     </button>}
                             </div>
 
                         </div>
-                    )
+                    );
                 })
             }
         </div>

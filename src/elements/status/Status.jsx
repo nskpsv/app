@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from './status.module.css';
 
 const Status = (props) => {
+
     const [localStatus, setLocalStatus] = useState(props.status)
 
     if (props.editable) {
@@ -21,8 +22,8 @@ const Status = (props) => {
         }
 
         return (
-            <div className={style.status}>
-                <div>
+            <div className={style.status} >
+                <div >
                     Статус:
                 </div>
                 {

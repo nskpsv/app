@@ -1,0 +1,1 @@
+export const sellectProfile = (state, id) => state.profile.profiles[id];

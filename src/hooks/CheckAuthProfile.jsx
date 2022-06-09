@@ -1,28 +1,28 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authApi } from '../api/api';
 import { setAuth } from '../redux/authReducer';
-import { getProfile } from "../redux/profileReducer";
+import { requestProfile } from "../redux/profileReducer";
 
-const useCheckAuthProfile = () => {
+const CheckAuthProfile = () => {
 
-    const state = useSelector(state => state.auth );
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     React.useEffect(() => {
         authApi
-            .checkAuth()
+        .checkAuth()
         .then((res) => {
-            dispatch(setAuth(res))
             if (res.resultCode) {
-                navigate('/login')
+                dispatch(setAuth(res));
+                navigate('/login');
             } else {
-                dispatch(getProfile(res.data.id))
+                dispatch(requestProfile(res.data.id));
+                dispatch(setAuth(res));
             }
         })
     }, []);
 };
 
-export default useCheckAuthProfile;
+export default CheckAuthProfile;

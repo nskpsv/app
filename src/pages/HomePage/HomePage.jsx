@@ -1,27 +1,33 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, {useRef} from 'react';
+import { Link, Navigate } from "react-router-dom";
 import style from './HomePage.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Status from '../../elements/status/Status.jsx';
+import { logout } from '../../redux/authReducer';
 
 const HomePage = () => {
-    const authData = useSelector((state) => { return state.auth })
-
+    const {resultCode, data: {id, email}} = useSelector(state => state.auth.authData);
+    const profile = useRef(useSelector(state => state.profile.profiles[id])).current;
+    const dispatch = useDispatch();
+    const onLogout = () =>{
+        dispatch(logout());
+        <Navigate to={'/login'} />
+    }
 
     return (
-        !authData.resultCode
+        !resultCode && profile
             ? <div className={style.container}>
                 <p>Вы авторизовались как:</p>
-                <p>{authData.data.login}</p>
-                <p>id: {authData.data.id}</p>
-                <p>E-mail: {authData.data.email}</p>
-                <Status status="Hello!!!" />
+                <p>{profile.name}</p>
+                <Link to={'/profile/' + profile.id}>id: {profile.id}</Link>
+                <p>E-mail: {email}</p>
+                <Status status={profile.status} editable={true}/>
                 <Link to='/users'> Users </Link>
+                <div className={style.logout}>
+                <button className={style.logout} onClick={onLogout} >Logout</button>
+                </div>
             </div>
-            : <div className={style.container}>
-                <div>{authData.messages}</div>
-                <Link to='/login'> Login </Link>
-            </div>
+            : <Navigate to='/login' /> 
     )
 };
 

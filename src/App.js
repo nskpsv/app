@@ -3,27 +3,31 @@ import './App.css';
 import HomePage from './pages/HomePage/HomePage.jsx';
 import ProductCard from './elements/ProductCard/ProductCard.jsx';
 import CartContainer from './elements/Cart/CartContainer.js';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Profile from './elements/fullProfileInfo/ProfileContainer'
 import Users from './elements/Users/UsersContainer.js';
 import LoginPage from './elements/login/login.jsx';
 import { useSelector } from 'react-redux';
-import useCheckAuthProfile from './hooks/useCheckAuthProfile';
+import CheckAuthProfile from './hooks/CheckAuthProfile';
 import Preloader from './elements/preloader/Preloader';
+import React from 'react';
 
 /*
-переделать getMyProfile в пetProfile, скаладывать ВСЕ профили в entity даже свой
-в state`е usersReducer`а в usersList должны храниться только userId, а данные профилей в entity
-все действия с профилем пользователя перенести в profileReducer
-*/ 
+НЕ НАДО СМОТРЕТЬ: 89, 90, 92, 95, 96, 98, 99, 100?
+*/
 
 const App = () => {
-  const authData = useSelector(state => state.auth);
+  const authData = useSelector(state => state.auth.authData)
+  const profile = useSelector(state => state.profile.profiles[authData?.data.id]);
 
-  if (useCheckAuthProfile()) useGetMyProfile()
+  CheckAuthProfile();
 
   if (!authData) {
-      return <Preloader />;
+    return <Preloader />;
+  } else if (authData.resultCode) {
+    <Navigate to='/login' />
+  } else if (!profile) {
+    return <Preloader />
   }
 
   return (
